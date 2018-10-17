@@ -1,0 +1,22 @@
+{{>header}}
+
+<form method="POST" action="/deleteProject/{{id}}">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <section class="section">
+        <div class="columns contentBackground">
+            <div class="column is-one-fifth">
+                {{>welcomeMenu}}
+            </div>
+            <div class="column is-three-fifths">
+                <nav class="level">
+
+                    <div class="level-left">
+                        <p>Are you sure?</p>
+                        <input class="button" type="submit" value="delete">
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </section>
+</form>

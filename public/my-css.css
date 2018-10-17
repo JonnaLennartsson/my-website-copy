@@ -1,0 +1,68 @@
+.simple {
+    width: 190px;
+    margin: 0px auto;
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+ .center {
+    text-align: center;
+}
+
+.simple-box {
+    margin: 50px auto;
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.small-box{
+    margin: 5px auto;
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.heroBackground {
+    background: url('/header_1.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+.heroBackground2 {
+    background: url('/header_2.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+.parisBackground{
+    background: url('/i-paris.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+.parisBackground2 {
+    background: url('/i-paris-kopia.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+.font-header-1 {
+    margin: 60px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 100px;
+    color: white;
+}
+
+.font-header-2{
+    margin-left: 30px;
+    margin-right: 30ps;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 50px;
+    color: white;
+}
+
+.contentBackground {
+    background-color: whitesmoke
+}
+
+.titlewth {
+    width: 200px
+}

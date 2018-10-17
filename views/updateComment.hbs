@@ -1,0 +1,16 @@
+{{>header}}
+
+ <section class="section">
+    <form method="POST" action="/updateCommentById/{{comment.Id}}">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="columns contentBackground">
+            <div class="column is-one-fifth">
+                {{>welcomeMenu}}
+            </div>
+            <div class="column is-three-fifths"> 
+                <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name="comment">{{comment.Comment}}</textarea>
+                <input class="button" type="submit" value="post">
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,38 @@
+{{>header}}
+
+<section class="section">
+    <div class="columns is-multiline">
+        {{#if projects.length}}
+            {{#each projects}}
+                <div class="column is-3">     
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img src="/{{Image}}" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <a class="subtitle" href="/projectPage/{{Id}}">{{Title}}</a>.
+                                {{#if ../isLoggedIn}}
+                                    <div class="buttons is-right">
+                                        <form method="GET" action="/updatePro/{{Id}}">
+                                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                            <input class="button is-small" type="submit" value="edit">
+                                        </form>
+                                        <form method="GET" action="/deleteInPortfolio/{{Id}}">
+                                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                            <input class="button is-small" type="submit" value="delete">
+                                        </form>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>   
+                </div>  
+            {{/each}}  
+        {{else}}
+            <p>No projects yet</p>
+        {{/if}}
+    </div>
+</section>

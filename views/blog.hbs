@@ -1,0 +1,42 @@
+{{>header}}
+
+
+<section class="section">
+    <div class="columns">
+        {{#if blogPosts.length}}    
+            {{#each blogPosts}} 
+                <div class="column is-one-fifth"></div>
+                <div class="column contentBackground is-three-fifths center">
+                    <h1 class="title small-box">{{Title}}</h1>
+                    <div class="level-item">
+
+                        <!--change this-->
+                        <figure class="image">
+                                <img src="/{{Image}}"> 
+                        </figure>
+
+                    </div>
+                    <p>{{Content}}</p>
+                    <section class="section small-box">
+                        <div class="buttons is-centered">
+                            {{#if ../isLoggedIn}} 
+                                <form method="GET" action="/updateBP/{{Id}}">
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                    <input class="button" type="submit" value="edit post">
+                                </form>
+                                <form method="GET" action="/deleteBlogPost/{{Id}}">
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                    <input class="button" type="submit" value="delete post">
+                                </form>
+                            {{/if}}
+                            <a class="button" href="/blogPage/{{Id}}">leave a comment</a> 
+                        </div>  
+                    </section>
+                </div>
+            {{/each}} 
+        {{else}}
+            <p>No blog posts yet</p> 
+        {{/if}} 
+    </div>
+</section>
+    

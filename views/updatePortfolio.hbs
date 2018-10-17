@@ -1,0 +1,35 @@
+{{>header}}
+
+<form ref='uploadForm' id='uploadForm' method="POST" action="/updateProject/{{project.Id}}" encType="multipart/form-data">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <section class="section">
+        <div class="columns contentBackground">
+            <div class="column is-one-fifth">
+                {{>welcomeMenu}}
+            </div>
+            <div class="column is-three-fifths">
+                <nav class="level">
+                    <div class="level-left">
+                        <textarea class="input titlewth" placeholder="Title" rows="1" name="title">{{project.Title}}</textarea>
+                    </div>
+                    <div class="level-right"> 
+                        <div class="file is-white">
+                            <label class="file-label">
+                            <input class="file-input" type="file" name="image">
+                            <span class="file-cta">
+                                <span class="file-icon"><i class="fas fa-upload"></i></span>
+                                <span class="file-label">Choose an image…</span>
+                            </span>
+                            </label>
+                        </div>
+                    </div>
+                </nav>
+                <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name="projectDescription">{{project.Content}}</textarea>
+                <div class="columns" style="margin-top: 10px">
+                    <input class="button" type="submit" value="update">
+                    
+                </div>
+            </div>   
+        </div>
+    </section>
+</form>

@@ -1,0 +1,67 @@
+{{>header}}
+
+<section class="section">
+    <div class="columns">
+        <div class="column is-one-fifth"></div>
+        <div class="column contentBackground is-three-fifths">
+            
+            <h1 class="title center small-box">{{blogPost.Title}}</h1>
+            <div class="level-item">
+
+                <!--change this-->
+                <figure class="image">
+                        <img src="/{{blogPost.Image}}"> 
+                </figure>
+
+            </div>
+            <p class="simple-box center">{{blogPost.Content}}</p>
+
+            <!--change this-->
+            <a href="/blog">back to blog</a>
+
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="columns">
+        <div class="column is-one-fifth"></div>
+        <div class="column contentBackground is-three-fifths">
+            <article class="media">
+                <div class="media-content">
+                    <form method="POST" action="/newComment/{{blogPost.Id}}">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <div class="field">
+                            <p class="control">
+                                <textarea class="textarea" placeholder="Add a comment..." name="comment" required></textarea>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <input class="button" type="submit" value="Post comment">
+                            </p>    
+                        </div>
+                    </form>
+                </div>
+            </article>
+            {{#if comments.length}}    
+                {{#each comments}}
+                <article class="media box">   
+                    <div class="media-content">
+                        <p>{{Comment}}</p> 
+                    </div>
+                    {{#if ../isLoggedIn}}
+                        <div class="media-right">
+                            <form method="POST" action="/deleteComment/{{Id}}/{{BlogPostId}}">
+                                <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                                <button class="delete"></button>
+                            </form> 
+                            <a href="/updateC/{{Id}}"><i class="fas fa-band-aid"></i></a>
+                        </div>
+                    {{/if}}
+                </article>
+            {{/each}}
+            {{/if}} 
+        </div>
+    </div>
+</section>
+ 
